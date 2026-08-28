@@ -23,7 +23,7 @@ export function Footer() {
                 alt="Liberalist Centre"
                 width={180}
                 height={36}
-                className="h-8 w-auto"
+                className="h-8 w-auto filter brightness-0 invert"
               />
             </a>
             <p className="text-sm leading-relaxed text-slate-555">

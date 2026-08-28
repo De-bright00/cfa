@@ -12,7 +12,6 @@ export function HeroSection() {
   
   // Stats counters state
   const [advocatesCount, setAdvocatesCount] = useState(0)
-  const [showPlus, setShowPlus] = useState(false)
 
   useEffect(() => {
     let startCount = 0
@@ -24,7 +23,6 @@ export function HeroSection() {
       startCount += step
       if (startCount >= targetCount) {
         setAdvocatesCount(targetCount)
-        setShowPlus(true)
         clearInterval(timer)
       } else {
         setAdvocatesCount(startCount)
@@ -201,32 +199,25 @@ export function HeroSection() {
 
           {/* Stats Bar */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="pt-10 border-t border-slate-900 max-w-xl mx-auto flex justify-between text-center select-none items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="pt-10 border-t border-slate-900 max-w-xl mx-auto flex justify-between text-center select-none"
           >
-            <div className="flex-1 flex flex-col items-center">
-              <p className="text-3xl sm:text-4xl font-bold font-serif text-white flex items-center justify-center h-10">
-                <span>{advocatesCount}</span>
-                <motion.span 
-                  animate={showPlus ? { scale: [1, 1.4, 1] } : { scale: 0 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                  className="text-red-500 ml-0.5"
-                >
-                  +
-                </motion.span>
+            <div>
+              <p className="text-3xl sm:text-4xl font-bold font-serif text-white">
+                {advocatesCount}+
               </p>
               <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest font-semibold mt-1">Advocates</p>
             </div>
-            <div className="w-px bg-slate-900 self-stretch h-12" />
-            <div className="flex-1 flex flex-col items-center">
-              <p className="text-3xl sm:text-4xl font-bold font-serif text-white flex items-center justify-center h-10">One</p>
+            <div className="w-px bg-slate-900 self-stretch" />
+            <div>
+              <p className="text-3xl sm:text-4xl font-bold font-serif text-white">One</p>
               <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest font-semibold mt-1">Movement</p>
             </div>
-            <div className="w-px bg-slate-900 self-stretch h-12" />
-            <div className="flex-1 flex flex-col items-center">
-              <p className="text-3xl sm:text-4xl font-bold font-serif text-white flex items-center justify-center h-10">Freedom</p>
+            <div className="w-px bg-slate-900 self-stretch" />
+            <div>
+              <p className="text-3xl sm:text-4xl font-bold font-serif text-white">Freedom</p>
               <p className="text-[10px] sm:text-xs text-slate-500 uppercase tracking-widest font-semibold mt-1">A Freer Africa</p>
             </div>
           </motion.div>

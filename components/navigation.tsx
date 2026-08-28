@@ -44,7 +44,7 @@ export function Navigation() {
                 alt="Liberalist Centre"
                 width={200}
                 height={40}
-                className="h-9 w-auto"
+                className="h-9 w-auto filter brightness-0 invert"
               />
             </a>
           </div>
