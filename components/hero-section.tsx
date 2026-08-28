@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Calendar, MapPin, Bell, Check, Sparkles, ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 export function HeroSection() {
   const [email, setEmail] = useState("")
@@ -82,9 +83,16 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-6xl sm:text-8xl md:text-9xl font-bold font-serif tracking-tight leading-none text-white select-none"
+              className="flex justify-center select-none py-2"
             >
-              ADVANCE
+              <Image
+                src="/advance-logo.png"
+                alt="ADVANCE"
+                width={500}
+                height={230}
+                priority
+                className="w-auto h-20 sm:h-28 md:h-36 object-contain"
+              />
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0 }}

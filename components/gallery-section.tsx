@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, Variants } from "framer-motion"
 import { ChevronLeft, ChevronRight, Play, Pause, Maximize2, X } from "lucide-react"
 
 export function GallerySection() {
@@ -54,7 +54,7 @@ export function GallerySection() {
   }
 
   // Slide transition animation config
-  const slideVariants = {
+  const slideVariants: Variants = {
     enter: (dir: number) => ({
       x: dir > 0 ? 300 : -300,
       opacity: 0

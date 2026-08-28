@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { BookOpen, UserPlus, Compass, Eye, ShieldAlert } from "lucide-react"
 
 export function TakeawaySection() {
@@ -32,7 +32,7 @@ export function TakeawaySection() {
     }
   ]
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -41,7 +41,7 @@ export function TakeawaySection() {
     }
   }
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, y: 20 },
     visible: { 
       opacity: 1, 
