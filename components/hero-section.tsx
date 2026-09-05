@@ -1,16 +1,12 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Calendar, MapPin, Bell, Check, Sparkles, ArrowRight } from "lucide-react"
+import { Calendar, MapPin, Sparkles, ArrowRight } from "lucide-react"
 import Image from "next/image"
 
 export function HeroSection() {
-  const [email, setEmail] = useState("")
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  
   // Stats counters state
   const [advocatesCount, setAdvocatesCount] = useState(0)
 
@@ -33,16 +29,8 @@ export function HeroSection() {
     return () => clearInterval(timer)
   }, [])
 
-  const handleVenueNotify = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email.trim()) {
-      setIsSubmitted(true)
-      setEmail("")
-    }
-  }
-
   return (
-    <section className="text-white min-h-screen flex items-center justify-center relative overflow-hidden bg-slate-950 pt-24 sm:pt-28">
+    <section className="text-white relative overflow-hidden bg-slate-950 pt-20 sm:pt-24 pb-16">
       {/* Dynamic Animated Mesh Grid Background */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div 
@@ -63,8 +51,8 @@ export function HeroSection() {
       <div className="absolute top-1/4 left-10 w-72 h-72 bg-red-600/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-blue-900/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
-        <div className="text-center space-y-10 max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-12 relative z-10 w-full">
+        <div className="text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto">
           
           {/* Tagline Badge */}
           <motion.div 
@@ -83,7 +71,7 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="flex justify-center select-none py-2"
+              className="flex justify-center select-none py-1"
             >
               <Image
                 src="/advance-logo.png"
@@ -117,7 +105,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex flex-col md:flex-row gap-6 justify-center items-stretch max-w-3xl mx-auto w-full pt-4"
+            className="flex flex-col md:flex-row gap-6 justify-center items-stretch max-w-3xl mx-auto w-full pt-2"
           >
             {/* Date Card */}
             <div className="flex-1 bg-slate-900/60 border border-slate-850 rounded-2xl p-6 flex items-center gap-4 text-left backdrop-blur-sm shadow-lg">
@@ -130,52 +118,19 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Venue Card with notification capture */}
-            <div className="flex-1 bg-slate-900/60 border border-slate-850 rounded-2xl p-6 flex flex-col justify-between gap-4 text-left backdrop-blur-sm shadow-lg">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center flex-shrink-0 text-red-500">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <p className="text-xs text-slate-556 font-bold uppercase tracking-wider">Venue</p>
-                    <span className="bg-amber-950/50 text-amber-500 border border-amber-900/30 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider animate-pulse">
-                      TBA
-                    </span>
-                  </div>
-                  <p className="text-base font-semibold text-slate-100">Abuja, Nigeria</p>
-                </div>
+            {/* Venue Card */}
+            <div className="flex-1 bg-slate-900/60 border border-slate-850 rounded-2xl p-6 flex items-center gap-4 text-left backdrop-blur-sm shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center flex-shrink-0 text-red-500">
+                <MapPin className="w-6 h-6" />
               </div>
-
-              {/* Mini Email Capture */}
-              <div className="border-t border-slate-850/60 pt-3">
-                <AnimatePresence mode="wait">
-                  {!isSubmitted ? (
-                    <form onSubmit={handleVenueNotify} className="flex gap-2">
-                      <Input
-                        type="email"
-                        required
-                        placeholder="Notify me of venue"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="bg-slate-950 border-slate-850 hover:border-slate-800 text-xs py-4 px-3 rounded-lg focus:border-red-500/50"
-                      />
-                      <Button type="submit" size="sm" className="bg-red-600 hover:bg-red-700 text-white font-bold text-[10px] rounded-lg px-3 uppercase tracking-wider flex items-center gap-1.5 flex-shrink-0">
-                        <Bell className="w-3 h-3" />
-                        Alert
-                      </Button>
-                    </form>
-                  ) : (
-                    <motion.div 
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="flex items-center gap-1.5 text-red-400 text-xs font-semibold py-1"
-                    >
-                      <Check className="w-4 h-4" />
-                      <span>Alert set! We will notify you.</span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+              <div>
+                <div className="flex items-center gap-2">
+                  <p className="text-xs text-slate-556 font-bold uppercase tracking-wider">Venue</p>
+                  <span className="bg-amber-950/50 text-amber-500 border border-amber-900/30 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">
+                    TBA
+                  </span>
+                </div>
+                <p className="text-lg font-semibold text-slate-100">Abuja, Nigeria</p>
               </div>
             </div>
           </motion.div>

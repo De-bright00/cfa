@@ -51,15 +51,15 @@ export function AgendaSection() {
     },
     {
       time: "01:30 PM",
-      title: "Choose Your Conversation: Breakout A",
+      title: "Breakout Session A: Sustaining the Right to Know Through Freedom of Information (CJID)",
       type: "Breakout",
-      isTBA: true
+      description: "Participants are introduced to the importance of the right to access information and the Freedom of Information (FOI) Act as a practical tool for transparency, accountability and civic action. The session will show participants how to identify information, draft and submit FOI requests, follow up on requests, and respond when information is withheld or denied."
     },
     {
       time: "01:30 PM",
-      title: "Choose Your Conversation: Breakout B",
+      title: "Breakout Session B: Tracking Public Funds for Accountability (BudgIT)",
       type: "Breakout",
-      isTBA: true
+      description: "A practical session to equip participants with the skills to follow public money from budget allocation to expenditure and implementation, and use financial information to promote transparency and accountability."
     },
     {
       time: "02:30 PM",
@@ -116,7 +116,7 @@ export function AgendaSection() {
   return (
     <section id="agenda" className="py-24 bg-slate-950 text-white relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-16 border-b border-slate-800 pb-8">
           <div className="text-left space-y-2">
@@ -130,7 +130,7 @@ export function AgendaSection() {
           </div>
 
           <div className="flex-shrink-0">
-            <Button 
+            <Button
               variant="outline"
               className="border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-900 group"
               onClick={() => alert("Agenda PDF will be available soon!")}
@@ -145,25 +145,23 @@ export function AgendaSection() {
         <div className="space-y-4">
           {schedule.map((item, index) => {
             const isOpen = activeSession === index
-            
+
             return (
-              <div 
-                key={index} 
-                className={`transition-all duration-300 rounded-2xl border ${
-                  item.isTBA 
-                    ? "border-dashed border-slate-800 bg-slate-950/20" 
-                    : isOpen 
-                      ? "border-red-900/30 bg-slate-900/40 shadow-lg shadow-red-950/5" 
+              <div
+                key={index}
+                className={`transition-all duration-300 rounded-2xl border ${item.isTBA
+                    ? "border-dashed border-slate-800 bg-slate-950/20"
+                    : isOpen
+                      ? "border-red-900/30 bg-slate-900/40 shadow-lg shadow-red-950/5"
                       : "border-slate-800/80 bg-slate-900/10 hover:border-slate-800"
-                }`}
+                  }`}
               >
                 {/* Clickable Header */}
                 <button
                   disabled={item.isTBA}
                   onClick={() => toggleSession(index)}
-                  className={`w-full p-5 sm:p-6 flex items-start gap-4 sm:gap-6 text-left transition-all duration-300 ${
-                    item.isTBA ? "cursor-default opacity-85" : "cursor-pointer"
-                  }`}
+                  className={`w-full p-5 sm:p-6 flex items-start gap-4 sm:gap-6 text-left transition-all duration-300 ${item.isTBA ? "cursor-default opacity-85" : "cursor-pointer"
+                    }`}
                 >
                   {/* Time column */}
                   <div className="flex-shrink-0 flex items-center gap-1.5 text-red-500 font-semibold text-sm sm:text-base pt-1">
@@ -198,10 +196,9 @@ export function AgendaSection() {
 
                   {/* Expand Icon */}
                   {!item.isTBA && (
-                    <ChevronDown 
-                      className={`w-5 h-5 text-slate-500 mt-1 transition-transform duration-300 flex-shrink-0 ${
-                        isOpen ? "transform rotate-180 text-red-500" : ""
-                      }`}
+                    <ChevronDown
+                      className={`w-5 h-5 text-slate-500 mt-1 transition-transform duration-300 flex-shrink-0 ${isOpen ? "transform rotate-180 text-red-500" : ""
+                        }`}
                     />
                   )}
                 </button>
