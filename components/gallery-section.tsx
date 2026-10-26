@@ -117,7 +117,7 @@ export function GallerySection() {
             Looking Back
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold text-white tracking-tight">
-            Inspire Gallery
+            CFA 2025 Gallery
           </h2>
           <p className="text-slate-400 mt-4 text-sm sm:text-base">
             Capturing the energy, discussions, and advocacy from our previous flagship conference (CFA 2025).

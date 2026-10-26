@@ -3,6 +3,8 @@
 import Image from "next/image"
 import { Mail, Phone, Globe, Calendar, MapPin } from "lucide-react"
 
+import Link from "next/link"
+
 export function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
@@ -80,10 +82,10 @@ export function Footer() {
         <div className="border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-556">
           <p>&copy; {new Date().getFullYear()} Conference of Freedom Advocates (CFA). Organised by the Liberalist Centre.</p>
           <div className="flex gap-4">
-            <a href="#agenda" className="hover:text-slate-300 transition-colors">Programme</a>
-            <a href="#speakers" className="hover:text-slate-300 transition-colors">Speakers</a>
-            <a href="#partners" className="hover:text-slate-300 transition-colors">Partners</a>
-            <a href="#faq" className="hover:text-slate-300 transition-colors">FAQ</a>
+            <Link href="/agenda" className="hover:text-slate-300 transition-colors">Agenda</Link>
+            <Link href="/#speakers" className="hover:text-slate-300 transition-colors">Speakers</Link>
+            <Link href="/#partners" className="hover:text-slate-300 transition-colors">Partners</Link>
+            <Link href="/#faq" className="hover:text-slate-300 transition-colors">FAQ</Link>
           </div>
         </div>
 

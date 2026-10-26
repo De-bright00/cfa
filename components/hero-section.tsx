@@ -144,10 +144,10 @@ export function HeroSection() {
           >
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-6 rounded-full transition-all duration-300 shadow-lg shadow-red-950/40"
-              onClick={() => window.open("https://forms.gle/ES2Rob2Smzrs2DAPA", "_blank")}
+              disabled
+              className="w-full sm:w-auto bg-slate-850 text-slate-400 border border-slate-700/80 font-bold px-8 py-6 rounded-full cursor-not-allowed shadow-none"
             >
-              Register to Attend
+              Registration Closed
             </Button>
             <Button
               size="lg"

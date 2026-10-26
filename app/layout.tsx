@@ -17,6 +17,7 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thecfa.liberalistcentre.org"),
   title: "CFA 2026 — ADVANCE | Conference of Freedom Advocates",
   description: "Organised by the Liberalist Centre. 31 October 2026. Advancing Freedom, Reform and Human Flourishing in Africa.",
   generator: "v0.app",
